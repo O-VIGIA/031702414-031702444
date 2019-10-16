@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="lxy">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>1.0</title>
+ </head>
+ <body>
+  <textarea id="user" rows="10" cols="30"></textarea>
+  <button onClick="chase()">提交</button>
+ </body>
+<script>	
+	function chase(){
+		var count = 0;
+		var flag = 0;
+		var fflag = 0;
+		var daoshi = [];
+		var xx = document.getElementById("user").value;
+		//alert(xx);
+		var yy = []; 
+		var yyy = [];
+
+		yyy = xx.split("\n\n");
+		for(var j = 0; j < yyy.length; ++j){
+			yy = yyy[j].split("\n");
+			for(var i = 0; i < yy.length; ++i){
+				var head_tmp = "";
+				var body_tmp = "";
+				//fflag = 0;
+				var hb = yy[i].split("：");
+				head_tmp = hb[0];
+				body_tmp = hb[1];
+				if(head_tmp == "导师"){
+					document.write("<br /><br />"+body_tmp+"<br />");
+				}else{
+					document.write("<br />");
+					var heads = head_tmp.split("级");
+					document.write("年级："+heads[0]+"<br />");
+					document.write("职业："+heads[1]+"<br />");
+					var bodies = body_tmp.split("、");
+					document.write("姓名：");
+					for(var kk = 0; kk < bodies.length; ++kk){
+						document.write("|");
+						document.write(bodies[kk]+"|");	
+					
+					}
+				}
+			}
+		}
+	}
+</script>
+
+</html>
